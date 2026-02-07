@@ -1,38 +1,42 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export default async function (req: Request) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
-    return new Response(
-      JSON.stringify({ error: "Method not allowed" }),
-      { status: 405 }
-    );
+    return res.status(405).end();
   }
 
-  const body = await req.json();
-  const { name, email, company, message } = body;
+  try {
+    const apiKey = process.env.RESEND_API_KEY;
 
-  if (!name || !email || !company) {
-    return new Response(
-      JSON.stringify({ error: "Missing required fields" }),
-      { status: 400 }
-    );
+    if (!apiKey) {
+      throw new Error("RESEND_API_KEY is missing");
+    }
+
+    const resend = new Resend(apiKey);
+
+    const { name, email, company, message } = req.body;
+
+    await resend.emails.send({
+      from: "Contact <onboarding@resend.dev>",
+      to: ["edwin@paceautomations.com"],
+      subject: "New Discovery Call Request",
+      reply_to: email,
+      html: `
+        <h2>New Discovery Call</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Company:</b> ${company}</p>
+        <p><b>Message:</b> ${message}</p>
+      `,
+    });
+
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("CONTACT_API_ERROR:", error);
+    return res.status(500).json({ error: "Failed to send message" });
   }
-
-  await resend.emails.send({
-    from: "Pace <edwin@paceautomations.com>",
-    to: ["edwin@paceautomations.com"],
-    replyTo: email,
-    subject: "New Discovery Call Request",
-    html: `
-      <h2>New Discovery Call Request</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Company:</strong> ${company}</p>
-      <p><strong>Message:</strong><br/>${message || "—"}</p>
-    `,
-  });
-
-  return new Response(JSON.stringify({ success: true }), { status: 200 });
 }
