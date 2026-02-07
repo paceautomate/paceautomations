@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import paceLogo from "@/assets/pace-logo.png";
 
 const footerLinks = {
   company: [
@@ -14,13 +15,13 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
+    <footer className="border-t border-border bg-card">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link to="/" className="text-2xl font-bold text-gradient-blue">
-              PACE
+            <Link to="/" className="inline-block">
+              <img src={paceLogo} alt="Pace" className="h-8 w-auto" />
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md">
               Security-first workflow automation for growing businesses. 

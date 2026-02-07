@@ -54,12 +54,12 @@ const HowItWorks = () => {
       <main className="pt-20">
         {/* Hero */}
         <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-glow opacity-20" />
+          <div className="absolute inset-0 bg-glow opacity-30" />
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up text-foreground">
                 A Proven Process for{" "}
-                <span className="text-gradient">Lasting Results</span>
+                <span className="text-gradient-blue">Lasting Results</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 From discovery to deployment, we handle every step of your automation journey 
@@ -70,7 +70,7 @@ const HowItWorks = () => {
         </section>
 
         {/* Process Steps */}
-        <section className="py-16">
+        <section className="py-16 bg-secondary/50">
           <div className="container mx-auto px-6">
             {processSteps.map((step, index) => (
               <div
@@ -89,18 +89,18 @@ const HowItWorks = () => {
                     <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                       {step.duration}
                     </div>
-                    <h2 className="text-3xl font-bold mb-4">{step.title}</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-foreground">{step.title}</h2>
                     <p className="text-lg text-muted-foreground">{step.description}</p>
                   </div>
                   
                   <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <div className="p-8 rounded-2xl border border-border bg-card">
+                    <div className="p-8 rounded-2xl border border-border bg-card shadow-card">
                       <h3 className="font-semibold mb-4 text-muted-foreground">Deliverables</h3>
                       <ul className="space-y-3">
                         {step.deliverables.map((deliverable) => (
                           <li key={deliverable} className="flex items-center gap-3">
                             <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                            <span>{deliverable}</span>
+                            <span className="text-foreground">{deliverable}</span>
                           </li>
                         ))}
                       </ul>
@@ -113,10 +113,10 @@ const HowItWorks = () => {
         </section>
 
         {/* Timeline */}
-        <section className="py-24 bg-card/30">
+        <section className="py-24">
           <div className="container mx-auto px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
                 From Chaos to Clarity in{" "}
                 <span className="text-gradient-blue">4 Weeks</span>
               </h2>
@@ -143,7 +143,7 @@ const HowItWorks = () => {
               </div>
               <ArrowRight className="w-8 h-8 text-primary hidden md:block" />
               <div className="text-center">
-                <div className="text-5xl font-bold text-gradient mb-2">∞</div>
+                <div className="text-5xl font-bold text-gradient-blue mb-2">∞</div>
                 <div className="text-muted-foreground">Ongoing optimization</div>
               </div>
             </div>

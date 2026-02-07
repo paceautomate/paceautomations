@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 205 100% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 222 47% 14%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 205 100% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 16%;
-    --input: 222 47% 16%;
-    --ring: 217 91% 60%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 205 100% 45%;
 
     --radius: 0.75rem;
 
@@ -40,33 +40,31 @@
     --success-foreground: 0 0% 100%;
 
     /* Custom PACE colors */
-    --pace-blue: 217 91% 60%;
-    --pace-blue-light: 217 91% 70%;
-    --pace-blue-dark: 217 91% 45%;
-    --pace-navy: 222 47% 6%;
-    --pace-navy-light: 222 47% 10%;
-    --pace-slate: 222 30% 20%;
-    --pace-glow: 217 100% 65%;
+    --pace-blue: 205 100% 45%;
+    --pace-blue-light: 205 100% 55%;
+    --pace-blue-dark: 205 100% 35%;
+    --pace-navy: 222 47% 11%;
+    --pace-slate: 215 25% 27%;
 
     /* Gradients */
-    --gradient-blue: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(240 80% 60%) 50%, hsl(280 70% 55%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%), hsl(222 47% 8%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(217 91% 60% / 0.15), transparent 70%);
+    --gradient-blue: linear-gradient(135deg, hsl(205 100% 45%), hsl(205 100% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(205 100% 50%) 0%, hsl(205 100% 40%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(205 100% 45% / 0.08), transparent 70%);
 
     /* Shadows */
-    --shadow-glow: 0 0 60px -15px hsl(217 91% 60% / 0.4);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
-    --shadow-button: 0 4px 14px -2px hsl(217 91% 60% / 0.4);
+    --shadow-glow: 0 0 60px -15px hsl(205 100% 45% / 0.3);
+    --shadow-card: 0 4px 24px -4px hsl(222 47% 11% / 0.08);
+    --shadow-button: 0 4px 14px -2px hsl(205 100% 45% / 0.3);
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 47% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 47% 16%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 205 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 205 100% 45%;
   }
 }
 
@@ -93,7 +91,7 @@
 
   .text-gradient-blue {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--pace-blue)), hsl(var(--pace-blue-light)));
+    background-image: linear-gradient(135deg, hsl(var(--pace-blue)), hsl(var(--pace-blue-dark)));
   }
 
   .bg-gradient-hero {
@@ -122,20 +120,19 @@
 
   .glass {
     @apply backdrop-blur-xl;
-    background: hsl(var(--card) / 0.7);
-    border: 1px solid hsl(var(--border) / 0.5);
+    background: hsl(var(--card) / 0.8);
+    border: 1px solid hsl(var(--border));
   }
 
   .glass-strong {
     @apply backdrop-blur-2xl;
-    background: hsl(var(--card) / 0.85);
-    border: 1px solid hsl(var(--border) / 0.6);
+    background: hsl(var(--card) / 0.95);
+    border-bottom: 1px solid hsl(var(--border));
   }
 
   .border-gradient {
-    border: 1px solid transparent;
-    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-                linear-gradient(135deg, hsl(var(--pace-blue) / 0.5), hsl(var(--border))) border-box;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
   }
 
   .animate-float {

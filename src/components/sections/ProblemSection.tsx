@@ -25,10 +25,10 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="py-24 relative">
+    <section className="py-24 relative bg-secondary/50">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Your Operations Shouldn't Be This{" "}
             <span className="text-gradient-blue">Painful</span>
           </h2>
@@ -42,13 +42,13 @@ export function ProblemSection() {
           {problems.map((problem, index) => (
             <div
               key={problem.title}
-              className="group p-6 rounded-xl border-gradient bg-card hover:shadow-card transition-all duration-300 animate-fade-in-up"
+              className="group p-6 rounded-xl border border-border bg-card hover:shadow-card transition-all duration-300 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 group-hover:bg-destructive/20 transition-colors">
                 <problem.icon className="w-6 h-6 text-destructive" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">{problem.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">{problem.title}</h3>
               <p className="text-muted-foreground text-sm">{problem.description}</p>
             </div>
           ))}
