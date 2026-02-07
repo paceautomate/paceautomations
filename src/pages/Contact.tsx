@@ -30,15 +30,43 @@ const Contact = () => {
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     });
 
-    setFormData({ name: "", email: "", company: "", message: "" });
+    if (!res.ok) {
+      throw new Error("Failed to send message");
+    }
+
+    toast({
+      title: "Request sent!",
+      description: "We’ll get back to you within 24 hours.",
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    });
+  } catch (error) {
+    toast({
+      title: "Something went wrong",
+      description: "Please try again or email us directly.",
+      variant: "destructive",
+    });
+  } finally {
     setIsSubmitting(false);
+  }
+};
+
   };
 
   const handleChange = (
