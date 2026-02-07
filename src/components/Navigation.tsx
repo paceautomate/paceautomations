@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import paceLogo from "@/assets/pace-logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -22,7 +23,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-gradient-blue">PACE</span>
+            <img src={paceLogo} alt="Pace" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

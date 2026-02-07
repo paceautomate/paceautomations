@@ -37,10 +37,10 @@ const useCases = [
 
 export function UseCasesSection() {
   return (
-    <section className="py-24 relative bg-card/30">
+    <section className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Automation <span className="text-gradient-blue">Use Cases</span>
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -58,7 +58,7 @@ export function UseCasesSection() {
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <useCase.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">{useCase.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">{useCase.title}</h3>
               <p className="text-muted-foreground text-sm">{useCase.description}</p>
             </div>
           ))}

@@ -27,7 +27,7 @@ const securityFeatures = [
 
 export function SecuritySection() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-secondary/50">
       {/* Glow Effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
       
@@ -40,13 +40,13 @@ export function SecuritySection() {
               <span className="text-sm text-primary font-medium">Security First</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
               Security Isn't an Afterthought.{" "}
               <span className="text-gradient-blue">It's Our Foundation.</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8">
-              We understand that trust is earned. That's why PACE is built from the ground up 
+              We understand that trust is earned. That's why Pace is built from the ground up 
               with security and data ownership at its core.
             </p>
 
@@ -63,13 +63,13 @@ export function SecuritySection() {
             {securityFeatures.map((feature, index) => (
               <div
                 key={feature.title}
-                className="p-5 rounded-xl border border-border bg-card/50 hover:border-primary/30 transition-all duration-300 animate-fade-in-up"
+                className="p-5 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 animate-fade-in-up hover:shadow-card"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                   <feature.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2">{feature.title}</h3>
+                <h3 className="font-semibold mb-2 text-foreground">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}

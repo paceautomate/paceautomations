@@ -33,17 +33,17 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-secondary/50">
       {/* Background Effect */}
-      <div className="absolute inset-0 bg-glow opacity-20" />
+      <div className="absolute inset-0 bg-glow opacity-30" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
             The Results <span className="text-gradient-blue">Speak for Themselves</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Real outcomes from businesses that partnered with PACE to transform their operations.
+            Real outcomes from businesses that partnered with Pace to transform their operations.
           </p>
         </div>
 
@@ -51,10 +51,10 @@ export function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <div
               key={benefit.unit}
-              className="group relative p-6 rounded-2xl border border-border bg-gradient-card hover:border-primary/50 transition-all duration-500 animate-fade-in-up"
+              className="group relative p-6 rounded-2xl border border-border bg-card hover:border-primary/50 transition-all duration-500 animate-fade-in-up hover:shadow-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:shadow-glow transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300">
                 <benefit.icon className="w-6 h-6 text-primary" />
               </div>
               

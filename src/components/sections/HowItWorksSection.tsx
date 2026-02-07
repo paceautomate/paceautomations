@@ -25,11 +25,11 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-24 relative bg-card/30">
+    <section className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            How PACE <span className="text-gradient-blue">Works</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+            How Pace <span className="text-gradient-blue">Works</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             A proven three-step process that takes you from operational chaos 
@@ -49,7 +49,7 @@ export function HowItWorksSection() {
                 <div className="hidden lg:block absolute top-1/4 right-0 w-full h-px bg-gradient-to-r from-border via-primary/30 to-border transform translate-x-1/2" />
               )}
               
-              <div className="relative p-8 rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-glow transition-all duration-500">
+              <div className="relative p-8 rounded-2xl border border-border bg-card hover:border-primary/50 hover:shadow-card transition-all duration-500">
                 {/* Step Number */}
                 <div className="absolute -top-4 left-8 px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-bold">
                   {step.number}
@@ -59,7 +59,7 @@ export function HowItWorksSection() {
                   <step.icon className="w-7 h-7 text-primary" />
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
               </div>
             </div>
