@@ -1,5 +1,9 @@
 import { Resend } from "resend";
 
+if (!process.env.RESEND_API_KEY) {
+  throw new Error("Missing RESEND_API_KEY");
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: any, res: any) {
@@ -15,7 +19,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     await resend.emails.send({
-      from: "Pace <onboarding@resend.dev>", // TEMP SAFE SENDER
+      from: "Pace <edwin@paceautomations.com>",
       to: ["edwin@paceautomations.com"],
       subject: "New Discovery Call Request",
       replyTo: email,
@@ -29,8 +33,8 @@ export default async function handler(req: any, res: any) {
     });
 
     return res.status(200).json({ success: true });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "Email failed" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Failed to send email" });
   }
 }
