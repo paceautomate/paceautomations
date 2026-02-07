@@ -15,7 +15,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     await resend.emails.send({
-      from: "Pace <edwin@paceautomations.com>",
+      from: "Pace <onboarding@resend.dev>", // TEMP SAFE SENDER
       to: ["edwin@paceautomations.com"],
       subject: "New Discovery Call Request",
       replyTo: email,
@@ -29,8 +29,8 @@ export default async function handler(req: any, res: any) {
     });
 
     return res.status(200).json({ success: true });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Failed to send email" });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Email failed" });
   }
 }
