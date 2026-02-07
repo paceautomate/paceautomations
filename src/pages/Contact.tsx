@@ -185,7 +185,7 @@ const Contact = () => {
                     href="mailto:hello@pacepartners.com"
                     className="text-primary underline"
                   >
-                    hello@pacepartners.com
+                    edwin@paceautomations.com
                   </a>
                 </div>
               </div>
